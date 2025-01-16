@@ -1,0 +1,54 @@
+{
+  "@class": "experiments.TExperimentSpec",
+  "searchEvaluatorSpec": {
+    "@class": "evaluator.TEvaluatorSpec",
+    "fitnessCombinationMode": "MEAN",
+    "taskSpecs": [
+      {
+        "@class": "task.spec.TScalarLinearTaskSpec",
+        "featuresSize": 4,
+        "numOfTrainExamples": 1000,
+        "numOfValidExamples": 100,
+        "numOfTasks": 10,
+        "evalMethod": "ACCURACY",
+        "taskType": "CLASSIFICATION",
+        "gaussianNoiseStdev": 0.2
+      }
+    ],
+    "FECSpec": {
+      "@class": "evaluator.TFECCacheSpec",
+      "numOfTrainExamples": 10,
+      "numOfValidExamples": 10
+    }
+  },
+  "evalEvaluatorSpec": {
+    "@class": "evaluator.TEvaluatorSpec",
+    "fitnessCombinationMode": "MEAN",
+    "taskSpecs": [
+      {
+        "@class": "task.spec.TScalarLinearTaskSpec",
+        "featuresSize": 4,
+        "numOfTrainExamples": 1000,
+        "numOfValidExamples": 100,
+        "numOfTasks": 10,
+        "evalMethod": "ACCURACY",
+        "taskType": "CLASSIFICATION",
+        "gaussianNoiseStdev": 0.2
+      }
+    ]
+  },
+  "progressLoggerSpec": {
+    "@class": "logger.TProgressLoggerSpec"
+  },
+  "eliteLoggerSpec": {
+    "@class": "logger.TEliteIndividualsLoggerSpec",
+    "eliteSize": 3
+  },
+  "improvementLoggerSpec": {
+    "@class": "logger.TImprovementLoggerSpec"
+  },
+  "maxNumOfEvaluations": 20000,
+  "maxNumOfExperiments": 10,
+  "sufficientFitness": 0.999,
+  "progressEvery": 1000
+}

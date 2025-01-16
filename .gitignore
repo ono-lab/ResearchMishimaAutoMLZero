@@ -1,0 +1,10 @@
+target
+**/.DS_Store
+__pycache__/
+*.egg-info/
+.eggs
+dist/
+*.dvi
+*.synctex.gz
+*.bbl
+logs/

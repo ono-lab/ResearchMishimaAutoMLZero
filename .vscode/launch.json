@@ -1,0 +1,136 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "files.autoSave": "onFocusChange",
+  "java.format.settings.profile": "GoogleStyle",
+  "java.format.settings.url": "eclipse-java-google-style.xml",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "latex-workshop.latex.tools": [
+    {
+      "command": "latexmk",
+      "args": [
+        "-e",
+        "$latex=q/platex %O -synctex=1 -interaction=nonstopmode -file-line-error %S/",
+        "-e",
+        "$bibtex=q/pbibtex %O %B/",
+        "-e",
+        "$biber=q/biber %O --bblencoding=utf8 -u -U --output_safechars %B/",
+        "-e",
+        "$makeindex=q/mendex %O -o %D %S/",
+        "-e",
+        "$dvipdf=q/dvipdfmx %O -o %D %S/",
+        "-norc",
+        "-pdfdvi",
+        "%DOC%"
+      ],
+      "name": "latexmk"
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (tex to PDF)",
+      "tools": ["latexmk"]
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.clean.subfolder.enabled": true,
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.dvi",
+    "*.synctex.gz"
+  ],
+  "configurations": [
+    {
+      "type": "java",
+      "name": "TExperimentRunner",
+      "request": "launch",
+      "mainClass": "experiments.TExperimentRunner",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "THandmadeExperimentRunner",
+      "request": "launch",
+      "mainClass": "experiments.THandmadeExperimentRunner",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "TDeduplicatedMGGAutoMLZeroVAG",
+      "request": "launch",
+      "mainClass": "method.deduplicated_mgg_vag.TDeduplicatedMGGAutoMLZeroVAG",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "TAlgorithmGraphMutator",
+      "request": "launch",
+      "mainClass": "mutator.proposed.TAlgorithmGraphMutator",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "TMGGAutoMLZeroVAG",
+      "request": "launch",
+      "mainClass": "method.mgg_vag.TMGGAutoMLZeroVAG",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "TREAutoMLZero",
+      "request": "launch",
+      "mainClass": "method.re.TREAutoMLZero",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "TLinearClassificationExperiment",
+      "request": "launch",
+      "mainClass": "experiments.proposed_20240827.TLinearClassificationExperiment",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "TLinearRegressionExperiment",
+      "request": "launch",
+      "mainClass": "experiments.proposed_20240827.TLinearRegressionExperiment",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "TAlgorithmGraphFactory",
+      "request": "launch",
+      "mainClass": "algorithm.factory.TAlgorithmGraphFactory",
+      "projectName": "AutoMLZero"
+    },
+    {
+      "type": "java",
+      "name": "TAlgorithmGraphMutator",
+      "request": "launch",
+      "mainClass": "mutator.proposed_20240827.TAlgorithmGraphMutator",
+      "projectName": "AutoMLZero"
+    }
+  ]
+}

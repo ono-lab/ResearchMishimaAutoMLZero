@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "scripts"
+version = "0.1.0"
+description = ""
+authors = ["Ryuji Mishima <ryuji.mishima.com@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+matplotlib = "^3.9.1.post1"
+pandas = "^2.2.2"
+numpy = "^2.0.1"
+click = "^8.1.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+progress_each = "scripts.progress_each_trial:show_progress_graph"
+progress_all = "scripts.progress_all_trials:show_progress_graph"

@@ -1,0 +1,47 @@
+{
+  "@class": "method.re.TREAutoMLZeroSpec",
+  "populationSize": 1000,
+  "tournamentSize": 10,
+  "numOfScalarAddresses": 5,
+  "numOfVectorAddresses": 3,
+  "numOfMatrixAddresses": 1,
+  "mutatorSpec": {
+    "@class": "mutator.esteban.TAlgorithmMutatorSpec",
+    "mutateProb": 0.9,
+    "actions": [
+      "ALTER_PARAM",
+      "RANDOMIZE_INSTRUCTION",
+      "RANDOMIZE_COMPONENT"
+    ],
+    "setupOps": ["SCALAR_CONST_SET_OP", "VECTOR_CONST_SET_OP"],
+    "predictOps": ["SCALAR_SUM_OP", "VECTOR_INNER_PRODUCT_OP"],
+    "learnOps": [
+      "SCALAR_SUM_OP",
+      "SCALAR_DIFF_OP",
+      "SCALAR_PRODUCT_OP",
+      "SCALAR_VECTOR_PRODUCT_OP",
+      "VECTOR_SUM_OP"
+    ],
+    "minSetupSize": 6,
+    "maxSetupSize": 6,
+    "minPredictSize": 2,
+    "maxPredictSize": 2,
+    "minLearnSize": 6,
+    "maxLearnSize": 6
+  },
+  "initialPopulationAlgorithmSpec": {
+    "@class": "algorithm.spec.TRandomAlgorithmSpec",
+    "setupSize": 6,
+    "predictSize": 2,
+    "learnSize": 6,
+    "setupOps": ["SCALAR_CONST_SET_OP", "VECTOR_CONST_SET_OP"],
+    "predictOps": ["SCALAR_SUM_OP", "VECTOR_INNER_PRODUCT_OP"],
+    "learnOps": [
+      "SCALAR_SUM_OP",
+      "SCALAR_DIFF_OP",
+      "SCALAR_PRODUCT_OP",
+      "SCALAR_VECTOR_PRODUCT_OP",
+      "VECTOR_SUM_OP"
+    ]
+  }
+}

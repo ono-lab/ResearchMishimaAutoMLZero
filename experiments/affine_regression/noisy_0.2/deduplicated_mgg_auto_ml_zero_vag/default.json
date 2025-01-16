@@ -1,0 +1,64 @@
+{
+  "@class": "method.deduplicated_mgg_vag.TDeduplicatedMGGAutoMLZeroVAGSpec",
+  "populationSize": 1000,
+  "numOfChildren": 100,
+  "weightOfDiversity": 0.4,
+  "initialPopulationAlgorithmSpec": {
+    "@class": "algorithm.spec.TAlgorithmGraphSpec",
+    "dim": 4,
+    "opsNum": [2, 6],
+    "parametersNum": [2, 0],
+    "opsSet": [
+      ["SCALAR_SUM_OP", "VECTOR_INNER_PRODUCT_OP"],
+      [
+        "SCALAR_SUM_OP",
+        "SCALAR_DIFF_OP",
+        "SCALAR_PRODUCT_OP",
+        "SCALAR_VECTOR_PRODUCT_OP",
+        "VECTOR_SUM_OP"
+      ]
+    ],
+    "opNodeConnectProbability": [0.3, 0.3],
+    "terminalNodeConnectProbability": [0.3, 0.3]
+  },
+  "mutatorSpec": {
+    "@class": "mutator.proposed.TAlgorithmGraphMutatorSpec",
+    "mutations": [
+      "ALTER_CONST_VALUE",
+      "ALTER_PARAMETER_INITIAL_VALUE",
+      "REPLACE_CONST_NODE_WITH_CONNECTION",
+      "REPLACE_CONNECTION_WITH_CONST_NODE",
+      "CHANGE_CONNECTION",
+      "RECONSTRUCT_SUB_GRAPH",
+      "RECONSTRUCT_ROOT_NODE"
+    ],
+    "probabilities": [0.05, 0.05, 0.05, 0.05, 0.2, 0.25, 0.35],
+    "alterConstValueMutatorSpec": {
+      "@class": "mutator.proposed.TAlterConstValueMutatorSpec",
+      "signFlipProb": 0.1
+    },
+    "alterParameterInitialValueMutatorSpec": {
+      "@class": "mutator.proposed.TAlterParameterInitialValueMutatorSpec",
+      "signFlipProb": 0.1
+    },
+    "replaceConnectionWithConstNodeMutatorSpec": {
+      "@class": "mutator.proposed.TReplaceConnectionWithConstNodeMutatorSpec"
+    },
+    "replaceConstNodeWithConnectionMutatorSpec": {
+      "@class": "mutator.proposed.TReplaceConstNodeWithConnectionMutatorSpec"
+    },
+    "changeConnectionMutatorSpec": {
+      "@class": "mutator.proposed.TChangeConnectionMutatorSpec"
+    },
+    "reconstructSubGraphMutatorSpec": {
+      "@class": "mutator.proposed.TReconstructSubGraphMutatorSpec",
+      "numOfRetries": 1000,
+      "selectSizeProbabilities": [0.2, 0.6, 0.2]
+    },
+    "reconstructRootNodeMutatorSpec": {
+      "@class": "mutator.proposed.TReconstructRootNodeMutatorSpec",
+      "numOfRetries": 1000,
+      "selectDepthProbabilities": [0.5, 0.5]
+    }
+  }
+}
