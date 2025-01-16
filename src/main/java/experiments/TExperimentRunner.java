@@ -50,12 +50,46 @@ public class TExperimentRunner {
   }
 
   public static void main(String[] args) {
-    TExperimentInstance instance = new TExperimentInstance(
-        TExperimentType.LINEAR_REGRESSION,
-      "noisy_0.2",
-        TMethodType.DEDUPLICATED_MGG_AUTO_ML_ZERO_VAG
-    );
-    TExperimentRunner runner = new TExperimentRunner(instance);
-    runner.execute();
+    TExperimentType experimentType = null;
+    String experimentName = "default";
+    TMethodType methodType = null;
+    String methodName = "default";
+
+    if (args.length < 2) {
+      System.err.println("Usage: java Program <experimentType> <datasetName> <methodType> <methodName>");
+      System.exit(1);
+    } else if (args.length == 2) {
+      experimentType = TExperimentType.valueOf(args[0]);
+      methodType = TMethodType.valueOf(args[1]);
+    } else if (args.length == 3) {
+      experimentType = TExperimentType.valueOf(args[0]);
+      experimentName = args[1];
+      methodType = TMethodType.valueOf(args[2]);
+    } else if (args.length == 4) {
+      experimentType = TExperimentType.valueOf(args[0]);
+      experimentName = args[1];
+      methodType = TMethodType.valueOf(args[2]);
+      methodName = args[3];
+    } else {
+      System.err.println("Usage: java Program <experimentType> <datasetName> <methodType> <methodName>");
+      System.exit(1);
+    }
+
+    try {
+      // インスタンスの生成
+      TExperimentInstance instance = new TExperimentInstance(experimentType, experimentName, methodType, methodName);
+
+      // 実験の実行
+      TExperimentRunner runner = new TExperimentRunner(instance);
+      runner.execute();
+
+      System.out.println("Experiment done.");
+      System.out.println("Experiment Logs are here: " + instance.getLogsDir());
+
+    } catch (IllegalArgumentException e) {
+      System.err.println("Error: Invalid argument provided.");
+      System.err.println("Ensure that <experimentType> and <methodType> match the defined enum values.");
+      System.exit(1);
+    }
   }
 }
