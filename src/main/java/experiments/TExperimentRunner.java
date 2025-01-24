@@ -39,10 +39,10 @@ public class TExperimentRunner {
     return fitness;
   }
 
-  public void execute() {
+  public void execute(Integer startTrialNo, Integer endTrialNo) {
     fInstance.copyConfigFiles();
     ArrayList<Double> fitnesses = new ArrayList<Double>();
-    for (int numOfExperiments = 1; numOfExperiments <= fSpec.maxNumOfExperiments; numOfExperiments++) {
+    for (int numOfExperiments = startTrialNo == null ? 1 : startTrialNo; numOfExperiments <= (endTrialNo == null ? fSpec.maxNumOfExperiments : endTrialNo); numOfExperiments++) {
       double fitness = executeOneExperiment(numOfExperiments);
       fitnesses.add(fitness);
     }
@@ -54,6 +54,8 @@ public class TExperimentRunner {
     String experimentName = "default";
     TMethodType methodType = null;
     String methodName = "default";
+    Integer startTrialNo = null;
+    Integer endTrialNo = null;
 
     if (args.length < 2) {
       System.err.println("Usage: java Program <experimentType> <datasetName> <methodType> <methodName>");
@@ -70,6 +72,13 @@ public class TExperimentRunner {
       experimentName = args[1];
       methodType = TMethodType.valueOf(args[2]);
       methodName = args[3];
+    } else if (args.length == 6) {
+      experimentType = TExperimentType.valueOf(args[0]);
+      experimentName = args[1];
+      methodType = TMethodType.valueOf(args[2]);
+      methodName = args[3];
+      startTrialNo = Integer.parseInt(args[4]);
+      endTrialNo = Integer.parseInt(args[5]);
     } else {
       System.err.println("Usage: java Program <experimentType> <datasetName> <methodType> <methodName>");
       System.exit(1);
@@ -81,7 +90,7 @@ public class TExperimentRunner {
 
       // 実験の実行
       TExperimentRunner runner = new TExperimentRunner(instance);
-      runner.execute();
+      runner.execute(startTrialNo, endTrialNo);
 
       System.out.println("Experiment done.");
       System.out.println("Experiment Logs are here: " + instance.getLogsDir());

@@ -8,3 +8,5 @@ dist/
 *.synctex.gz
 *.bbl
 logs/
+
+settings.xml

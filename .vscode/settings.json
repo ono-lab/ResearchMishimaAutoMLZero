@@ -64,6 +64,7 @@
     "cSpell.words": [
     "randomizer",
     "mutable",
-    "stdev"
+    "stdev",
+    "automl_zero"
   ],
 }
