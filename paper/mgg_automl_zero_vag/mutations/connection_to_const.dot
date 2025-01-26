@@ -1,0 +1,32 @@
+
+digraph G {
+
+    rankdir=LR;
+
+    opr1 [label="..."];
+    opr2 [label="..."];
+    opr3 [label="..."];
+    opr4 [label="..."];
+
+    op4;
+    const [label="0.01", shape=box];
+    op1;
+    op2;
+    op3;
+    op4 [label="..."];
+    op5 [label="..."];
+    op6 [label="..."];
+    op7 [label="..."];
+
+    opr1 -> op1
+    opr1 -> opr3
+    opr2 -> op2
+    opr2 -> opr4
+    op1 -> op4;
+    op1 -> const [color=red];
+    op1 -> op3 [style=dotted];
+    op2 -> op3
+    op3 -> op5
+    op3 -> op6
+    op2 -> op7
+}

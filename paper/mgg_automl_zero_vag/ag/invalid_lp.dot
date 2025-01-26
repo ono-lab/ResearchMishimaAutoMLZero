@@ -1,0 +1,46 @@
+digraph G {
+
+    rankdir=LR; // 左から右に表示
+
+    s1 [label="", shape=doublecircle];
+    lp1 [label="", style=filled, shape=trapezium, fillcolor=lightgreen];
+    lp2 [label="",style=filled, shape=trapezium, fillcolor=lightblue];
+    lp3 [label="",style=filled, shape=trapezium, fillcolor=lightyellow];
+    lp4 [label="",style=filled, shape=trapezium, fillcolor=orange];
+
+    nlp1 [label="", shape=doublecircle, style=filled, fillcolor=lightgreen];
+    nlp2 [label="", shape=doublecircle, style=filled, fillcolor=lightblue];
+    nlp3 [label="", shape=doublecircle, style=filled, fillcolor=lightyellow];
+    nlp4 [label="", shape=doublecircle, style=filled, fillcolor=orange];
+
+    s0 [label="",shape=diamond];
+    v0 [label="",shape=diamond];
+
+    predict [label="NG 0"]
+    learn1  [label="NG 1"]
+    learn2  [label="NG 2"]
+    learn3  [label="NG 3"]
+
+    s1 -> predict
+    predict -> lp1
+    predict -> lp2
+    predict -> v0
+
+    nlp1 -> learn1
+    nlp2 -> learn1
+
+    learn1 -> s1
+    learn1 -> lp1
+    learn1 -> lp2
+    learn1 -> s0
+    learn1 -> lp3[style=dotted]
+
+    nlp3 -> learn2
+    learn2 -> lp3
+    learn2 -> learn1
+    learn2 -> lp4
+
+    nlp4 -> learn3
+    learn3 -> lp4
+    learn3 -> learn2
+}

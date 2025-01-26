@@ -1,0 +1,11 @@
+digraph G {
+
+    rankdir=LR;
+
+    s4 [label="     \n-"];
+    s0 [label="",shape=diamond];
+    s1 [label="     \n+", shape=doublecircle];
+
+    s4 -> s0;
+    s4 -> s1;
+}

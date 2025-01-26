@@ -1,0 +1,33 @@
+digraph G {
+
+    rankdir=LR;
+
+    opr1 [label="..."];
+    opr2 [label="..."];
+    opr3 [label="..."];
+    opr4 [label="..."];
+
+    op8 [label="..."];
+    op1;
+    op2;
+    op3;
+    op4;
+    op6 [label="..."];
+    op7 [label="..."];
+    op9 [label="..."];
+    op10 [label="..."];
+
+    opr1 -> op1
+    opr1 -> opr3
+    opr2 -> op2
+    opr2 -> opr4
+    op1 -> op8;
+    op1 -> op4 [style=dotted];
+    op1 -> op3 [color=red];
+    op2 -> op3
+    op3 -> op4
+    op3 -> op6
+    op2 -> op7
+    op4 -> op9
+    op4 -> op10
+}

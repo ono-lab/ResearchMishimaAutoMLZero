@@ -1,0 +1,43 @@
+digraph G {
+
+    rankdir=LR;
+
+    s1 [label="s1\n+", shape=doublecircle, style=filled, fillcolor=lightyellow];
+    s2 [label="s2\ndot"];
+    s3 [label="s3\n0.01", shape=box];
+    s4 [label="s4\n*"];
+    s6 [label="s6\n-"];
+    v3 [label="v3\n*"];
+    v6_next [label="v6\n+", shape=doublecircle, style=filled, fillcolor=lightblue];
+    s7_next [label="s7\n+", shape=doublecircle, style=filled, fillcolor=lightpink];
+    s7 [style=filled, shape=trapezium, fillcolor=lightpink];
+    v6 [style=filled, shape=trapezium, fillcolor=lightblue];
+    v0 [shape=diamond];
+    s0 [shape=diamond];
+
+    s2 -> v0;
+    s2 -> v6;
+
+    s1 -> s7;
+    s1 -> s2;
+
+    subgraph cluster_0 {
+        style=filled;
+        color=lightgrey;
+
+        s4 -> s3;
+        s4 -> s1;
+
+        s6 -> s0;
+        s6 -> s4;
+    }
+
+    v3 -> s6;
+    v3 -> v0;
+
+    v6_next -> v6;
+    v6_next -> v3;
+
+    s7_next -> s7;
+    s7_next -> s6;
+}

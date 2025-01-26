@@ -1,0 +1,38 @@
+digraph G {
+
+    rankdir=LR; // 左から右に表示
+
+    s1 [label="     \n+", shape=doublecircle];
+    s2 [label="dot"];
+    s3 [label="0.01", shape=box];
+    s4 [label="-"];
+    s6 [label="*"];
+    v3 [label="*"];
+    v6_next [label="     \n+", shape=doublecircle, style=filled, fillcolor=lightblue];
+    s7_next [label="     \n+", shape=doublecircle, style=filled, fillcolor=lightgreen];
+    s7 [label="\n0.2", style=filled, shape=trapezium, fillcolor=lightgreen];
+    v6 [label="\n[0.2, 0.1, 0.1]",style=filled, shape=trapezium, fillcolor=lightblue];
+    v0 [label="",shape=diamond];
+    s0 [label="",shape=diamond];
+
+    s2 -> v0;
+    s2 -> v6;
+
+    s1 -> s7;
+    s1 -> s2;
+
+    s4 -> s0;
+    s4 -> s1;
+
+    s6 -> s3;
+    s6 -> s4;
+
+    v3 -> s6;
+    v3 -> v0;
+
+    v6_next -> v6;
+    v6_next -> v3;
+
+    s7_next -> s7;
+    s7_next -> s6;
+}
