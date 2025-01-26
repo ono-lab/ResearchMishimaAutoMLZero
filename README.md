@@ -5,10 +5,7 @@
 以下のコマンドで依存関係のインストールする.
 
 ```
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y openjdk-17-jdk
-sudo apt install -y maven
+sh ./setup.sh
 ```
 
 Java に関するセットアップを実行する.
