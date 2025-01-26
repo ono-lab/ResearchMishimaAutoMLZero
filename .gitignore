@@ -7,6 +7,5 @@ dist/
 *.dvi
 *.synctex.gz
 *.bbl
-logs/
 
 settings.xml
