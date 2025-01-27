@@ -11,6 +11,8 @@ public class TAlgorithmGraphMutator {
   private TAlgorithmGraphMutation[] fMutations;
   private double[] fProbabilities;
 
+  private boolean kSafeMode = true;
+
   private TAlterConstValueMutator fAlterConstValueMutator;
   private TAlterParameterInitialValueMutator fAlterParameterInitialValueMutator;
   private TReplaceConnectionWithConstNodeMutator fReplaceConnectionWithConstNodeMutator;
@@ -69,6 +71,9 @@ public class TAlgorithmGraphMutator {
         mutation = fMutations[mutationIndex];
         mutated = mutate(mutation, graph, memory, rand);
         mutated.setMutation(mutation);
+        if (kSafeMode && !mutated.validate(memory)) {
+          continue;
+        }
         break;
       } catch (Exception e) {
         continue;

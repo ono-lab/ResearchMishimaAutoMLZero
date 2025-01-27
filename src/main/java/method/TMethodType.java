@@ -9,6 +9,7 @@ import experiments.TExperimentInstance;
 import method.deduplicated_mgg_vag.TDeduplicatedMGGAutoMLZeroVAGSpec;
 import method.mgg_vag.TMGGAutoMLZeroVAGSpec;
 import method.re.TREAutoMLZeroSpec;
+import method.re_vag.TREAutoMLZeroVAGSpec;
 
 public enum TMethodType {
   RE_AUTO_ML_ZERO(),
@@ -30,6 +31,8 @@ public enum TMethodType {
       switch (this) {
         case RE_AUTO_ML_ZERO:
           return objectMapper.readValue(config, TREAutoMLZeroSpec.class);
+        case RE_AUTO_ML_ZERO_VAG:
+          return objectMapper.readValue(config, TREAutoMLZeroVAGSpec.class);
         case MGG_AUTO_ML_ZERO_VAG:
           return objectMapper.readValue(config, TMGGAutoMLZeroVAGSpec.class);
         case DEDUPLICATED_MGG_AUTO_ML_ZERO_VAG:
