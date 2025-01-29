@@ -12,13 +12,6 @@ import click
     help="Directory containing the log files",
 )
 @click.option(
-    "-p",
-    "--prefix",
-    type=str,
-    help="Prefix for the log files",
-    default="progress_",
-)
-@click.option(
     "-n",
     "--num",
     type=int,
@@ -43,7 +36,6 @@ import click
 def show_progress_graph(
     ctx: click.Context,
     dir: str | None,
-    prefix: str | None,
     num: int,
     lim: int,
     compare: str | None,
@@ -54,7 +46,10 @@ def show_progress_graph(
 
     # 元の試行結果をプロット
     for i in range(num):
-        filename = "logs/{}{}{}.csv".format(dir, prefix, i + 1)
+        filename = "logs/{}/{}/progress.csv".format(
+            dir,
+            i + 1,
+        )
         print("Reading '{}'...".format(filename))
         if not os.path.exists(filename):
             print(f"File not found: {filename}")
@@ -72,7 +67,10 @@ def show_progress_graph(
     # 比較試行結果をプロット
     if compare:
         for i in range(num):
-            filename = "logs/{}{}{}.csv".format(compare, prefix, i + 1)
+            filename = "logs/{}/{}/progress.csv".format(
+                compare,
+                i + 1,
+            )
             print("Reading comparison '{}'...".format(filename))
             if not os.path.exists(filename):
                 print(f"Comparison file not found: {filename}")
@@ -94,7 +92,7 @@ def show_progress_graph(
     plt.legend(fontsize="small", loc="best")
 
     # 保存先を作成して保存
-    fig_filename = "analytics/{}{}graph.png".format(dir, prefix)
+    fig_filename = "analytics/graph.png"
     os.makedirs(os.path.dirname(fig_filename), exist_ok=True)
     plt.tight_layout()
     plt.savefig(fig_filename)

@@ -168,3 +168,22 @@
   year      = {2022},
   pages     = {1009-1018}
 }
+
+@article{vag,
+  author     = {Ferrante, Jeanne and Ottenstein, Karl J. and Warren, Joe D.},
+  title      = {The program dependence graph and its use in optimization},
+  year       = {1987},
+  issue_date = {July 1987},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {9},
+  number     = {3},
+  issn       = {0164-0925},
+  url        = {https://doi.org/10.1145/24039.24041},
+  doi        = {10.1145/24039.24041},
+  abstract   = {In this paper we present an intermediate program representation, called the program dependence graph (PDG), that makes explicit both the data and control dependences for each operation in a program. Data dependences have been used to represent only the relevant data flow relationships of a program. Control dependences are introduced to analogously represent only the essential control flow relationships of a program. Control dependences are derived from the usual control flow graph. Many traditional optimizations operate more efficiently on the PDG. Since dependences in the PDG connect computationally related parts of the program, a single walk of these dependences is sufficient to perform many optimizations. The PDG allows transformations such as vectorization, that previously required special treatment of control dependence, to be performed in a manner that is uniform for both control and data dependences. Program transformations that require interaction of the two dependence types can also be easily handled with our representation. As an example, an incremental approach to modifying data dependences resulting from branch deletion or loop unrolling is introduced. The PDG supports incremental optimization, permitting transformations to be triggered by one another and applied only to affected dependences.},
+  journal    = {ACM Trans. Program. Lang. Syst.},
+  month      = jul,
+  pages      = {319–349},
+  numpages   = {31}
+}

@@ -1,0 +1,66 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cscover}
+
+\def\cscover@clap#1{\hbox to 0pt{\hss #1\hss}}%
+\def\cscover@ligne#1{%
+\hbox to \hsize{%
+\vbox{\centering #1}}}%
+\def\cscover@haut#1#2#3{%
+\hbox to \hsize{%
+\rlap{\vtop{\raggedright #1}}%
+\hss
+\cscover@clap{\vtop{\centering #2}}%
+\hss
+\llap{\vtop{\raggedleft #3}}}}%
+\def\cscover@bas#1#2#3{%
+\hbox to \hsize{%
+\rlap{\vbox{\raggedright #1}}%
+\hss
+\cscover@clap{\vbox{\centering #2}}%
+\hss
+\llap{\vbox{\raggedleft #3}}}}%
+\def\cscover@svb#1#2{%
+  \hbox to \hsize{%
+    \hbox to 0.5\hsize{\hfil #1}%
+    \quad
+    \hbox to 0.4\hsize{#2 \hfil}}}%
+\def\maketitle{%
+\thispagestyle{empty}\vbox to \vsize{%
+\cscover@haut{}{\LARGE \textbf{\cscover@thesistype}}{}
+\vfill
+\cscover@ligne{\Huge \cscover@title}
+\vspace{1cm}
+\cscover@ligne{\LARGE \cscover@author}
+\bigskip
+\cscover@ligne{\Large \cscover@studentid}
+\vfill
+\cscover@haut{}{\Large \cscover@affiliation}{}
+\vfill
+\cscover@svb{\Large \cscover@supervisorname}{\Large \cscover@supervisor}
+\ifx\cscover@dsupervisor\@empty\else
+  \medskip \cscover@svb{\Large \cscover@dsupervisorname}{\Large \cscover@dsupervisor}
+\fi
+\vfill
+\cscover@bas{}{\large \cscover@date}{}
+}%
+\cleardoublepage
+}
+\def\date#1{\def\cscover@date{#1}}
+\def\author#1{\def\cscover@author{#1}}
+\def\studentid#1{\def\cscover@studentid{#1}}
+\def\title#1{\def\cscover@title{#1}}
+\def\supervisor#1{\def\cscover@supervisor{#1}}
+\def\dsupervisor#1{\def\cscover@dsupervisor{#1}}
+\def\supervisorname#1{\def\cscover@supervisorname{#1}}
+\def\dsupervisorname#1{\def\cscover@dsupervisorname{#1}}
+\def\affiliation#1{\def\cscover@affiliation{#1}}
+\def\thesistype#1{\def\cscover@thesistype{#1}}
+\title{}
+\author{}
+\date{}
+\supervisor{}
+\dsupervisor{}
+\supervisorname{}
+\dsupervisorname{}
+\affiliation{}
+\thesistype{}
