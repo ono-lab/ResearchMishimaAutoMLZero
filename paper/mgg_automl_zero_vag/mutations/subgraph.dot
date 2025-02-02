@@ -2,18 +2,18 @@ digraph G {
 
     rankdir=LR;
 
-    s1 [label="s1\n+", shape=doublecircle, style=filled, fillcolor=lightyellow];
-    s2 [label="s2\ndot"];
-    s3 [label="s3\n0.01", shape=box];
-    s4 [label="s4\n*"];
-    s6 [label="s6\n-"];
-    v3 [label="v3\n*"];
-    v6_next [label="v6\n+", shape=doublecircle, style=filled, fillcolor=lightblue];
-    s7_next [label="s7\n+", shape=doublecircle, style=filled, fillcolor=lightpink];
-    s7 [style=filled, shape=trapezium, fillcolor=lightpink];
-    v6 [style=filled, shape=trapezium, fillcolor=lightblue];
-    v0 [shape=diamond];
-    s0 [shape=diamond];
+    s1 [label="     \n+", shape=doublecircle];
+    s2 [label="dot"];
+    s3 [label="0.01", shape=box];
+    s4 [label="*"];
+    s6 [label="+"];
+    v3 [label="*"];
+    v6_next [label="     \n+", shape=doublecircle, style=filled, fillcolor=lightblue];
+    s7_next [label="     \n+", shape=doublecircle, style=filled, fillcolor=lightgreen];
+    s7 [label="\n0.2", style=filled, shape=trapezium, fillcolor=lightgreen];
+    v6 [label="\n[0.2, 0.1, 0.1]",style=filled, shape=trapezium, fillcolor=lightblue];
+    v0 [label="",shape=diamond];
+    s0 [label="",shape=diamond];
 
     s2 -> v0;
     s2 -> v6;

@@ -86,7 +86,8 @@ def show_progress_graph(
     # グラフ全体の設定
     plt.xlabel("The number of evaluations")
     plt.ylabel("Fitness")
-    plt.xlim(0, lim)
+    plt.xlim(1000, lim)
+    plt.xscale("log")
     plt.ylim(0, 1)
     plt.grid(True)
     plt.legend(fontsize="small", loc="best")
